@@ -1,6 +1,6 @@
 class X264Ymod < Formula
-  desc "x264 with custom patches"
-  homepage ""
+  desc "X264 with custom patches"
+  homepage "https://github.com/YamashitaRen/x264_YMod"
   url "https://github.com/YamashitaRen/x264_YMod/archive/v1.0_20171224.tar.gz"
   sha256 "5ad728ccdb42d7d8b2ced432ca14aac544b16e19d8ea9897aee80e9f2e5ecfca"
   head "https://github.com/YamashitaRen/x264_YMod.git"
