@@ -109,6 +109,11 @@ class Vapoursynth < Formula
     sha256 "385a740cbaf4f4d28fb17b4929ea10fe75f4f733f54594882ef01f847acfff3d"
   end
 
+  resource "mvtools" do
+    url "https://github.com/dubhater/vapoursynth-mvtools/archive/v21.tar.gz"
+    sha256 "dc267fce40dd8531a39b5f51075e92dd107f959edb8be567701ca7545ffd35c5"
+  end
+
   def install
     venv = virtualenv_create(buildpath/"cython", "python3")
     venv.pip_install "Cython"
@@ -206,6 +211,11 @@ class Vapoursynth < Formula
       system "./configure"
       system "make"
       (lib/"vapoursynth").install "libdelogo.dylib"
+    end
+    resource("mvtools").stage do
+      system "meson", "build"
+      system "ninja", "-C", "build"
+      (lib/"vapoursynth").install "build/libmvtools.dylib"
     end
 
     # Clean up .la files
