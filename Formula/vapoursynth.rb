@@ -63,6 +63,16 @@ class Vapoursynth < Formula
     sha256 "235f43ef4aac04ef2f42a8c44c2c16b077754a3e403992df4b87c8c4b9e13aa5"
   end
 
+  resource "eedi2" do
+    url "https://github.com/HomeOfVapourSynthEvolution/VapourSynth-EEDI2/archive/r7.1.tar.gz"
+    sha256 "62146635e0d0cadfdd6b2426941968261992c7d6172d3a244802a1d5129b757a"
+  end
+
+  resource "eedi3" do
+    url "https://github.com/HomeOfVapourSynthEvolution/VapourSynth-EEDI3/archive/r4.tar.gz"
+    sha256 "c4d758e0e5a4b0d1b84cd4f78d64a99e992b4e657cf71e3a7be42fdeb1bbf996"
+  end
+
   resource "fmtconv" do
     url "https://github.com/EleonoreMizo/fmtconv/archive/r20.tar.gz"
     sha256 "44f2f2be05a0265136ee1bb51bd08e5a47c6c1e856d0d045cde5a6bbd7b4350c"
@@ -156,6 +166,16 @@ class Vapoursynth < Formula
       system "./configure", "--prefix=#{prefix}"
       system "make", "install"
       (lib/"vapoursynth").install "#{lib}/libnnedi3.dylib"
+    end
+    resource("eedi2").stage do
+      system "meson", "build"
+      system "ninja", "-C", "build"
+      (lib/"vapoursynth").install "build/libeedi2.dylib"
+    end
+    resource("eedi3").stage do
+      system "meson", "build"
+      system "ninja", "-C", "build"
+      (lib/"vapoursynth").install "build/libeedi3m.dylib"
     end
     resource("fmtconv").stage do
       Dir.chdir("build/unix")
