@@ -3,8 +3,8 @@ class VapoursynthVcb < Formula
 
   desc "Video processing framework with simplicity in mind"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R49.tar.gz"
-  sha256 "126d1e68d3a3e80d1e215c8a2a5dc8773f5fcac70a6c22dadc837bccb603bccd"
+  url "https://github.com/vapoursynth/vapoursynth/archive/R50.tar.gz"
+  sha256 "b9dc7ce904c6a3432df7491b7052bc4cf09ccf1e7a703053f8079a2267522f97"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   depends_on "autoconf" => :build
@@ -26,24 +26,17 @@ class VapoursynthVcb < Formula
   depends_on "tesseract"
   depends_on "zimg"
 
-  resource "Cython" do
-    url "https://files.pythonhosted.org/packages/d9/82/d01e767abb9c4a5c07a6a1e6f4d5a8dfce7369318d31f48a52374094372e/Cython-0.29.15.tar.gz"
-    sha256 "e4d6bb8703d0319eb04b7319b12ea41580df44fd84d83ccda13ea463c6801414"
-  end
-
+  # Plugins and scripts
   resource "mvsfunc" do
-    url "https://github.com/HomeOfVapourSynthEvolution/mvsfunc/archive/r8.tar.gz"
-    sha256 "011a86eceb5485093d91a7c12a42bdf9f35384c6c89dc0ab92fca4481f68d373"
+    url "https://github.com/HomeOfVapourSynthEvolution/mvsfunc.git"
   end
 
   resource "havsfunc" do
-    url "https://github.com/HomeOfVapourSynthEvolution/havsfunc/archive/r31.tar.gz"
-    sha256 "caaacb4254ac4f0b653833648fb9913d7df865e32608980b52290485b9501b7d"
+    url "https://github.com/HomeOfVapourSynthEvolution/havsfunc.git"
   end
 
   resource "adjust" do
-    url "https://github.com/dubhater/vapoursynth-adjust/archive/v1.tar.gz"
-    sha256 "f5b151ecc007ac784a360d84b6e4a8819d8e969dfdeacc5e4b1dfb2a6fda710f"
+    url "https://github.com/dubhater/vapoursynth-adjust.git"
   end
 
   resource "nnedi3_resample" do
@@ -51,7 +44,7 @@ class VapoursynthVcb < Formula
   end
 
   resource "lsmashsource" do
-    url "https://github.com/inflation/L-SMASH-Works.git"
+    url "https://github.com/HolyWu/L-SMASH-Works.git"
   end
 
   resource "bilateral" do
@@ -59,23 +52,19 @@ class VapoursynthVcb < Formula
   end
 
   resource "nnedi3" do
-    url "https://github.com/dubhater/vapoursynth-nnedi3/archive/v12.tar.gz"
-    sha256 "235f43ef4aac04ef2f42a8c44c2c16b077754a3e403992df4b87c8c4b9e13aa5"
+    url "https://github.com/dubhater/vapoursynth-nnedi3.git"
   end
 
   resource "eedi2" do
-    url "https://github.com/HomeOfVapourSynthEvolution/VapourSynth-EEDI2/archive/r7.1.tar.gz"
-    sha256 "62146635e0d0cadfdd6b2426941968261992c7d6172d3a244802a1d5129b757a"
+    url "https://github.com/HomeOfVapourSynthEvolution/VapourSynth-EEDI2.git"
   end
 
   resource "eedi3" do
-    url "https://github.com/HomeOfVapourSynthEvolution/VapourSynth-EEDI3/archive/r4.tar.gz"
-    sha256 "c4d758e0e5a4b0d1b84cd4f78d64a99e992b4e657cf71e3a7be42fdeb1bbf996"
+    url "https://github.com/HomeOfVapourSynthEvolution/VapourSynth-EEDI3.git"
   end
 
   resource "fmtconv" do
-    url "https://github.com/EleonoreMizo/fmtconv/archive/r20.tar.gz"
-    sha256 "44f2f2be05a0265136ee1bb51bd08e5a47c6c1e856d0d045cde5a6bbd7b4350c"
+    url "https://github.com/EleonoreMizo/fmtconv/archive/r22.tar.gz"
   end
 
   resource "knlmeanscl" do
@@ -87,8 +76,7 @@ class VapoursynthVcb < Formula
   end
 
   resource "ctmf" do
-    url "https://github.com/HomeOfVapourSynthEvolution/VapourSynth-CTMF/archive/r4.1.tar.gz"
-    sha256 "04af7fab53d868191a2ef593569abf0e8d4bf877257bbea8adfbbcf879861609"
+    url "https://github.com/HomeOfVapourSynthEvolution/VapourSynth-CTMF.git"
   end
 
   resource "f3kdb" do
@@ -96,18 +84,15 @@ class VapoursynthVcb < Formula
   end
 
   resource "histogram" do
-    url "https://github.com/dubhater/vapoursynth-histogram/archive/v2.tar.gz"
-    sha256 "17d33d98d52310e3890dd12411e9065f95e6b3249b4b8b8edd10d5e416674013"
+    url "https://github.com/dubhater/vapoursynth-histogram.git"
   end
 
   resource "msmoosh" do
-    url "https://github.com/dubhater/vapoursynth-msmoosh/archive/v1.1.tar.gz"
-    sha256 "f49b4a00f141b245040ce1ffce00c79880da0118078d5c8f26d9a654fb028ddc"
+    url "https://github.com/dubhater/vapoursynth-msmoosh.git"
   end
 
   resource "tcanny" do
-    url "https://github.com/HomeOfVapourSynthEvolution/VapourSynth-TCanny/archive/r12.tar.gz"
-    sha256 "9f1a4944445ea44ad192e89faee25366bfbb781f32309393c03d2357c4ac39b5"
+    url "https://github.com/HomeOfVapourSynthEvolution/VapourSynth-TCanny.git"
   end
 
   resource "fft3dfilter" do
@@ -115,13 +100,16 @@ class VapoursynthVcb < Formula
   end
 
   resource "delogo" do
-    url "https://github.com/HomeOfVapourSynthEvolution/VapourSynth-DeLogo/archive/v0.4.tar.gz"
-    sha256 "385a740cbaf4f4d28fb17b4929ea10fe75f4f733f54594882ef01f847acfff3d"
+    url "https://github.com/HomeOfVapourSynthEvolution/VapourSynth-DeLogo.git"
   end
 
   resource "mvtools" do
-    url "https://github.com/dubhater/vapoursynth-mvtools/archive/v21.tar.gz"
-    sha256 "dc267fce40dd8531a39b5f51075e92dd107f959edb8be567701ca7545ffd35c5"
+    url "https://github.com/dubhater/vapoursynth-mvtools.git"
+  end
+
+  resource "Cython" do
+    url "https://files.pythonhosted.org/packages/99/36/a3dc962cc6d08749aa4b9d85af08b6e354d09c5468a3e0edc610f44c856b/Cython-0.29.17.tar.gz"
+    sha256 "6361588cb1d82875bcfbad83d7dd66c442099759f895cf547995f00601f9caf2"
   end
 
   def install
@@ -132,29 +120,15 @@ class VapoursynthVcb < Formula
                           "--with-cython=#{buildpath}/cython/bin/cython",
                           "--enable-plugins"
     system "make", "install"
-
-    # Scripts
-    resource("mvsfunc").stage do
-      (lib/"python3.7/site-packages").install "mvsfunc.py"
-    end
-    resource("havsfunc").stage do
-      (lib/"python3.7/site-packages").install "havsfunc.py"
-    end
-    resource("adjust").stage do
-      (lib/"python3.7/site-packages").install "adjust.py"
-    end
-    resource("nnedi3_resample").stage do
-      (lib/"python3.7/site-packages").install "nnedi3_resample.py"
-    end
   end
 
   def post_install
     # Install Plugins
     resource("lsmashsource").stage do
       Dir.chdir("VapourSynth")
-      system "./configure"
-      system "make"
-      (lib/"vapoursynth").install "libvslsmashsource.1.dylib"
+      system "meson", "build"
+      system "ninja", "-C", "build"
+      (lib/"vapoursynth").install "build/libvslsmashsource.dylib"
     end
     resource("bilateral").stage do
       system "bash", "configure"
@@ -179,6 +153,9 @@ class VapoursynthVcb < Formula
     end
     resource("fmtconv").stage do
       Dir.chdir("build/unix")
+      inreplace "Makefile.am" do |s|
+        s.gsub! /-latomic /, ""
+      end
       system "./autogen.sh"
       system "./configure", "--prefix=#{prefix}"
       system "make", "install"
@@ -240,6 +217,20 @@ class VapoursynthVcb < Formula
 
     # Clean up .la files
     Dir.glob("#{lib}/*.la").each { |file| File.delete(file) }
+
+    # Install scripts
+    resource("mvsfunc").stage do
+      (lib/"python3.8/site-packages").install "mvsfunc.py"
+    end
+    resource("havsfunc").stage do
+      (lib/"python3.8/site-packages").install "havsfunc.py"
+    end
+    resource("adjust").stage do
+      (lib/"python3.8/site-packages").install "adjust.py"
+    end
+    resource("nnedi3_resample").stage do
+      (lib/"python3.8/site-packages").install "nnedi3_resample.py"
+    end
   end
 
   test do
