@@ -1,15 +1,15 @@
 class VapoursynthVcb < Formula
-  include Language::Python::Virtualenv
-
   desc "Video processing framework with simplicity in mind"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R50.tar.gz"
-  sha256 "b9dc7ce904c6a3432df7491b7052bc4cf09ccf1e7a703053f8079a2267522f97"
+  url "https://github.com/vapoursynth/vapoursynth/archive/R51.tar.gz"
+  sha256 "163591a6cbb493e9dedd2f67f72eb5da0ab07a28a44789a2c8a7698df583bd15"
+  license "LGPL-2.1"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "boost" => :build
+  depends_on "cython" => :build
   depends_on "libtool" => :build
   depends_on "meson" => :build
   depends_on "nasm" => :build
@@ -21,8 +21,8 @@ class VapoursynthVcb < Formula
   depends_on "fftw"
   depends_on "imagemagick"
   depends_on "libass"
-  depends_on :macos => :el_capitan # due to zimg dependency
-  depends_on "python"
+  depends_on macos: :el_capitan # due to zimg dependency
+  depends_on "python@3.8"
   depends_on "tesseract"
   depends_on "zimg"
 
@@ -65,6 +65,7 @@ class VapoursynthVcb < Formula
 
   resource "fmtconv" do
     url "https://github.com/EleonoreMizo/fmtconv/archive/r22.tar.gz"
+    sha256 "0b524b9e2ba9ebb8e5798265679daeef7bd9c568629b0c33d7b27a8a3a51c8f9"
   end
 
   resource "knlmeanscl" do
@@ -113,12 +114,15 @@ class VapoursynthVcb < Formula
   end
 
   def install
-    venv = virtualenv_create(buildpath/"cython", "python3")
-    venv.pip_install "Cython"
     system "./autogen.sh"
+    inreplace "Makefile.in", "pkglibdir = $(libdir)", "pkglibdir = $(exec_prefix)"
     system "./configure", "--prefix=#{prefix}",
-                          "--with-cython=#{buildpath}/cython/bin/cython",
-                          "--enable-plugins"
+                          "--disable-silent-rules",
+                          "--disable-dependency-tracking",
+                          "--with-cython=#{Formula["cython"].bin}/cython",
+                          "--with-plugindir=#{lib}/vapoursynth"
+    pyflags = `python3-config --ldflags --embed`.chomp
+    system "make", "LDFLAGS=#{pyflags}"
     system "make", "install"
   end
 
@@ -234,9 +238,9 @@ class VapoursynthVcb < Formula
   end
 
   test do
-    py3 = Language::Python.major_minor_version "python3"
-    ENV.prepend_path "PYTHONPATH", lib/"python#{py3}/site-packages"
-    system "python3", "-c", "import vapoursynth"
+    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    ENV.prepend_path "PYTHONPATH", lib/"python#{xy}/site-packages"
+    system Formula["python@3.8"].opt_bin/"python3", "-c", "import vapoursynth"
     system bin/"vspipe", "--version"
   end
 end
