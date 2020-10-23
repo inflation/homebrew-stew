@@ -1,8 +1,8 @@
 class VapoursynthVcb < Formula
   desc "Video processing framework with simplicity in mind"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R51.tar.gz"
-  sha256 "163591a6cbb493e9dedd2f67f72eb5da0ab07a28a44789a2c8a7698df583bd15"
+  url "https://github.com/vapoursynth/vapoursynth/archive/R52.tar.gz"
+  sha256 "4d5dc7950f4357da695d29708bc98013bc3e0bd72fc5d697f8c91ce3c4a4b2ac"
   license "LGPL-2.1"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
@@ -108,14 +108,12 @@ class VapoursynthVcb < Formula
     url "https://github.com/dubhater/vapoursynth-mvtools.git"
   end
 
-  resource "Cython" do
-    url "https://files.pythonhosted.org/packages/99/36/a3dc962cc6d08749aa4b9d85af08b6e354d09c5468a3e0edc610f44c856b/Cython-0.29.17.tar.gz"
-    sha256 "6361588cb1d82875bcfbad83d7dd66c442099759f895cf547995f00601f9caf2"
+  resource "retinex" do 
+    url "https://github.com/HomeOfVapourSynthEvolution/VapourSynth-Retinex.git"
   end
 
   def install
     system "./autogen.sh"
-    inreplace "Makefile.in", "pkglibdir = $(libdir)", "pkglibdir = $(exec_prefix)"
     system "./configure", "--prefix=#{prefix}",
                           "--disable-silent-rules",
                           "--disable-dependency-tracking",
@@ -217,6 +215,11 @@ class VapoursynthVcb < Formula
       system "meson", "build"
       system "ninja", "-C", "build"
       (lib/"vapoursynth").install "build/libmvtools.dylib"
+    end
+    resource("retinex").stage do 
+      system "meson", "build"
+      system "ninja", "-C", "build"
+      (lib/"vapoursynth").install "build/libretinex.dylib"
     end
 
     # Clean up .la files
