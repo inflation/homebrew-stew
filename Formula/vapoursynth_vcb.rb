@@ -3,7 +3,7 @@ class VapoursynthVcb < Formula
   homepage "http://www.vapoursynth.com"
   url "https://github.com/vapoursynth/vapoursynth/archive/R52.tar.gz"
   sha256 "4d5dc7950f4357da695d29708bc98013bc3e0bd72fc5d697f8c91ce3c4a4b2ac"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   depends_on "autoconf" => :build
@@ -22,7 +22,7 @@ class VapoursynthVcb < Formula
   depends_on "imagemagick"
   depends_on "libass"
   depends_on macos: :el_capitan # due to zimg dependency
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "tesseract"
   depends_on "zimg"
 
@@ -119,8 +119,6 @@ class VapoursynthVcb < Formula
                           "--disable-dependency-tracking",
                           "--with-cython=#{Formula["cython"].bin}/cython",
                           "--with-plugindir=#{lib}/vapoursynth"
-    pyflags = `python3-config --ldflags --embed`.chomp
-    system "make", "LDFLAGS=#{pyflags}"
     system "make", "install"
   end
 
@@ -227,17 +225,21 @@ class VapoursynthVcb < Formula
 
     # Install scripts
     resource("mvsfunc").stage do
-      (lib/"python3.8/site-packages").install "mvsfunc.py"
+      (lib/"python3.9/site-packages").install "mvsfunc.py"
     end
     resource("havsfunc").stage do
-      (lib/"python3.8/site-packages").install "havsfunc.py"
+      (lib/"python3.9/site-packages").install "havsfunc.py"
     end
     resource("adjust").stage do
-      (lib/"python3.8/site-packages").install "adjust.py"
+      (lib/"python3.9/site-packages").install "adjust.py"
     end
     resource("nnedi3_resample").stage do
-      (lib/"python3.8/site-packages").install "nnedi3_resample.py"
+      (lib/"python3.9/site-packages").install "nnedi3_resample.py"
     end
+
+    # Relink
+    system "brew", "unlink", "vapoursynth_vcb"
+    system "brew", "link", "vapoursynth_vcb"
   end
 
   test do
