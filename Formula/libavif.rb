@@ -1,8 +1,8 @@
 class Libavif < Formula
   desc "Friendly, portable C implementation of the AV1 Image File Format"
   homepage "https://github.com/AOMediaCodec/libavif"
-  url "https://github.com/AOMediaCodec/libavif/archive/v0.8.1.tar.gz"
-  sha256 "27d39b69151fd090f26e10779ec79876af44876d180edda77beafa8e7e7aca26"
+  url "https://github.com/AOMediaCodec/libavif/archive/v0.8.4.tar.gz"
+  sha256 "116b46a9a497c6ef178c5a20b912d8ac02f888dc8c537e40b5d16700823a9b16"
   head "https://github.com/AOMediaCodec/libavif.git"
 
   depends_on "cmake" => :build
@@ -19,7 +19,6 @@ class Libavif < Formula
       -DAVIF_BUILD_APPS=ON
     ]
     system "cmake", ".", *args
-    system "make"
-    system "make", "install" # if this fails, try separate make/make install steps
+    system "make", "install"
   end
 end
