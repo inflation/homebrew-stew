@@ -1,8 +1,8 @@
 class X265Yuuki < Formula
   desc "Yuuki modded version of x265"
   homepage "https://github.com/msg7086/x265-Yuuki-Asuna"
-  url "https://github.com/msg7086/x265-Yuuki-Asuna/archive/3.0.tar.gz"
-  sha256 "63d79bc2c09362c792992376b1608fdd9653a6a05d22573ccb5b54340a156b44"
+  url "https://github.com/msg7086/x265-Yuuki-Asuna/archive/3.1.tar.gz"
+  sha256 "df091d2192cf6a9a6286c9579129e36845053bf05e3503d74219eaa950566c2d"
   head "https://github.com/msg7086/x265-Yuuki-Asuna.git", :branch => "Yuuki"
 
   depends_on "cmake" => :build
