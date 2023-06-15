@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# A Modern Linker
+# :nodoc:
 class Sold < Formula
   desc 'A Modern Linker'
   homepage 'https://github.com/bluewhalesystems/sold'

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Vapoursynth Plugin for fmtconv
+# :nodoc:
 class VapoursynthFmtconv < Formula
   desc 'Vapoursynth Plugin for fmtconv'
   homepage 'https://github.com/EleonoreMizo/fmtconv'

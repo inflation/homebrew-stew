@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-# Video/Image filter to undo upscaling
+# :nodoc:
 class VapoursynthDescale < Formula
-  desc 'Video/Image filter to undo upscaling.'
+  desc 'Video/Image filter to undo upscaling'
   homepage 'https://github.com/Irrational-Encoding-Wizardry/descale'
   url 'https://github.com/Irrational-Encoding-Wizardry/descale/archive/refs/tags/r8.tar.gz'
   version 'r8'

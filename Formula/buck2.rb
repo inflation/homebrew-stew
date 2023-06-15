@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Successor to Buck, a multi-language build tool
+# :nodoc:
 class Buck2 < Formula
   desc 'Successor to Buck, a multi-language build tool'
   homepage 'https://buck2.build'

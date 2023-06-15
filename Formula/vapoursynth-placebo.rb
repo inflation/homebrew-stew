@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Vapoursynth Plugin for libplacebo
+# :nodoc:
 class VapoursynthPlacebo < Formula
   desc 'Vapoursynth plugin for libplacebo'
   homepage 'https://github.com/Lypheo/vs-placebo'
@@ -10,7 +10,6 @@ class VapoursynthPlacebo < Formula
 
   depends_on 'meson' => :build
   depends_on 'ninja' => :build
-  depends_on 'cmake' => :build
 
   depends_on 'libplacebo'
   depends_on 'vapoursynth'

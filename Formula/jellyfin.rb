@@ -2,11 +2,10 @@
 
 require 'language/node'
 
-# Jellyfin is a Free Software Media System that puts you in control of managing
-# and streaming your media
+# :nodoc:
 class Jellyfin < Formula
-  desc 'Jellyfin is a Free Software Media System that puts you in control of managing
-        and streaming your media'
+  desc 'Jellyfin is a Free Software Media System that puts you in control of managing' \
+       'and streaming your media'
   homepage 'https://github.com/jellyfin/jellyfin'
   url 'https://github.com/jellyfin/jellyfin/archive/refs/tags/v10.8.10.tar.gz'
   version '10.8.10'

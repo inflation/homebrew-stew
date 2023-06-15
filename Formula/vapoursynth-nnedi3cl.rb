@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Vapoursynth Plugin for NNEDI3CL
+# :nodoc:
 class VapoursynthNnedi3cl < Formula
   desc 'Vapoursynth Plugin for NNEDI3CL'
   homepage 'https://github.com/HomeOfVapourSynthEvolution/VapourSynth-NNEDI3CL'
