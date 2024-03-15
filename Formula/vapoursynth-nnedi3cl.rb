@@ -14,10 +14,14 @@ class VapoursynthNnedi3cl < Formula
   depends_on 'vapoursynth'
 
   def install
-    vslib = lib / 'vapoursynth'
+    mkdir "build" do
+      system 'meson', 'setup', *std_meson_args, '--unity=on' , '..'
+      system 'meson', 'compile'
 
-    system 'meson', 'build', *std_meson_args, "--libdir=#{vslib}"
-    system 'ninja', '-C', 'build', 'install'
-    vslib.install 'build/libnnedi3cl.dylib'
+      with_env DESTDIR: "#{prefix}" do
+        system 'meson', 'install'
+      end
+      # vslib.install 'build/libnnedi3cl.dylib'
+    end
   end
 end

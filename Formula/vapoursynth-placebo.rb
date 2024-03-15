@@ -16,8 +16,10 @@ class VapoursynthPlacebo < Formula
 
   def install
     # ENV['PKG_CONFIG_PATH'] += ':/opt/VulkanSDK/1.3.216.0/macOS/lib/pkgconfig'
-    system 'meson', 'build', *std_meson_args
-    system 'ninja', '-C', 'build'
-    bin.install 'build/libvs_placebo.dylib'
+    mkdir "build" do
+      system 'meson', 'setup', *std_meson_args, '..'
+      system 'meson', 'compile'
+      (lib / "vapoursynth").install 'libvs_placebo.dylib'
+    end
   end
 end
