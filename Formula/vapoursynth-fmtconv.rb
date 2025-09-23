@@ -3,10 +3,9 @@
 # :nodoc:
 class VapoursynthFmtconv < Formula
   desc 'Vapoursynth Plugin for fmtconv'
-  homepage 'https://github.com/EleonoreMizo/fmtconv'
-  url 'https://github.com/EleonoreMizo/fmtconv/archive/refs/tags/r29.tar.gz'
-  version 'r29'
-  sha256 'cf087eef8d40f88bb33c1e94e7123448d6f5fc3c1dadd862e0d836569dbd922a'
+  homepage 'https://gitlab.com/EleonoreMizo/fmtconv/'
+  url 'https://gitlab.com/EleonoreMizo/fmtconv/-/archive/r30/fmtconv-r30.tar.bz2'
+  version 'r30'
 
   depends_on 'autoconf' => :build
   depends_on 'automake' => :build
