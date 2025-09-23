@@ -1,9 +1,8 @@
 class Bestsource < Formula
   desc "A super great audio/video source and FFmpeg wrapper"
   homepage ""
-  url "https://github.com/vapoursynth/bestsource.git", tag: "R6"
-  sha256 "9eb96e536b1daadfad0f6b6f48dcd93d36b7a27d77e91c16f3e1630f5b21372b"
-  version "R6"
+  url "https://github.com/vapoursynth/bestsource.git", tag: "R13"
+  version "R13"
   license "MIT"
 
   depends_on "meson" => :build
